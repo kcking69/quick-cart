@@ -74,8 +74,9 @@ export const createUserOrder = inngest.createFunction(
     const orders = events.map((event) => {
       return {
         userId: event.data.userId,
+        address: event.data.address, // should be a string
         items: event.data.items,
-        amount: event.data.address,
+        amount: event.data.amount,   // should be a number
         date: event.data.date,
       };
     });

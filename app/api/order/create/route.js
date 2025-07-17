@@ -14,22 +14,28 @@ export async function POST(request) {
     }
 
     // calculate items using items
-    const amount = await items.reduce(async (acc, item) => {
+    // ...existing code...
+    // calculate total amount
+    let amount = 0;
+    for (const item of items) {
       const product = await Product.findById(item.product);
-      return await acc + product.offerPrice * item.quantity;
-    }, 0);
+      if (!product) continue;
+      amount += product.offerPrice * item.quantity;
+    }
+// ...existing code...
 
+   // ...existing code...
     await inngest.send({
       name: 'order/created',
       data: {
         userId,
-        address,
+        address: typeof address === 'string' ? address : String(address),
         items,
-        amount: amount + Math.floor(amount * 0.02),
+        amount: Number(amount + Math.floor(amount * 0.02)),
         date: Date.now(),
       },
     });
-
+// ...existing code...
     // clear user cart
     const user = await User.findById(userId);
     user.cartItems = {};
