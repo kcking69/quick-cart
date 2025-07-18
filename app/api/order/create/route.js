@@ -33,7 +33,6 @@ export async function POST(request) {
         items,
         amount: Number(amount + Math.floor(amount * 0.02)),
         date: Date.now(),
-        paymentType: 'COD',
       },
     });
     // ...existing code...
