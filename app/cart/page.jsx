@@ -23,7 +23,7 @@ const Cart = () => {
         <div className='flex-1'>
           <div className='flex items-center justify-between mb-8 border-b border-gray-500/30 pb-6'>
             <p className='text-2xl md:text-3xl text-gray-500'>
-              Your <span className='font-medium text-orange-600'>Cart</span>
+              Your <span className='font-medium text-blue-600'>Cart</span>
             </p>
             <p className='text-lg md:text-xl text-gray-500/80'>
               {getCartCount()} Items
@@ -69,7 +69,7 @@ const Cart = () => {
                             />
                           </div>
                           <button
-                            className='md:hidden text-xs text-orange-600 mt-1'
+                            className='md:hidden text-xs text-blue-600 mt-1'
                             onClick={() => updateCartQuantity(product._id, 0)}
                           >
                             Remove
@@ -78,7 +78,7 @@ const Cart = () => {
                         <div className='text-sm hidden md:block'>
                           <p className='text-gray-800'>{product.name}</p>
                           <button
-                            className='text-xs text-orange-600 mt-1'
+                            className='text-xs text-blue-600 mt-1'
                             onClick={() => updateCartQuantity(product._id, 0)}
                           >
                             Remove
@@ -135,7 +135,7 @@ const Cart = () => {
           </div>
           <button
             onClick={() => router.push('/all-products')}
-            className='group flex items-center mt-6 gap-2 text-orange-600'
+            className='group flex items-center mt-6 gap-2 text-blue-600'
           >
             <Image
               className='group-hover:-translate-x-1 transition'
