@@ -22,9 +22,9 @@ export async function POST(request) {
       if (!product) continue;
       amount += product.offerPrice * item.quantity;
     }
-// ...existing code...
+    // ...existing code...
 
-   // ...existing code...
+    // ...existing code...
     await inngest.send({
       name: 'order/created',
       data: {
@@ -33,9 +33,10 @@ export async function POST(request) {
         items,
         amount: Number(amount + Math.floor(amount * 0.02)),
         date: Date.now(),
+        paymentType: 'COD',
       },
     });
-// ...existing code...
+    // ...existing code...
     // clear user cart
     const user = await User.findById(userId);
     user.cartItems = {};
